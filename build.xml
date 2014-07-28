@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project name="StarDict" default="xjc" basedir=".">
+
+	<property name="xjc.bin" value="/usr/bin/xjc" />
+	<property name="src.dir" value="./src"/>
+	<property name="target.pkg" value="zen.ilgo.star.xml"/>
+	<property name="star.xsd" value="./resources/stardict.xsd" />
+	
+	<!-- create the JAXB classes from the stardict.xsd
+	     target is src/zen/ilgo/star/xml
+	-->
+	<target name="xjc">
+		<exec executable="${xjc.bin}">
+		    <arg value="-d"/>
+		    <arg value="${src.dir}"/>
+		    <arg value="-p"/>
+		    <arg value="${target.pkg}"/>
+		    <arg value="-verbose"/>
+		    <arg value="${star.xsd}"/>
+		</exec>	
+	</target>
+
+</project>

@@ -1,0 +1,3 @@
+1. Data in ifo and Meta transformation
+2. setting the default ns: to star: when writing to xml
+3. Existing dictionaries that do not use syn files. 
