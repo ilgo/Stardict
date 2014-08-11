@@ -16,6 +16,7 @@ A command line tool to transform xml files from and into stardict format.
 The following libraries will be needed:
 * commons-cli.jar
 
+
 ###Build
 Build by running __ant__ in the root of the project.
 It will create an executable ./star.jar.
