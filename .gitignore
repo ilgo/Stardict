@@ -1,3 +1,7 @@
 *.swp
 *.javac
-build/
+*.jar
+
+**/xml/*
+**/build/
+
