@@ -24,6 +24,6 @@ usage: star.jar
 examples:
 Export an existing Stardict with given name to xml. A valid stardict is a at least a triple of files with the following file-expansions. '.ifo', '.idx', 'dict'. If either the idx or dict files are zipped, they must be first unzipped.
 
-./star.jar -e yusig -s /home/data/dict => will create yusig.xml in the current directory.
+'''./star.jar -e yusig -s /home/data/dict''' => will create yusig.xml in the current directory.
 ./star-jar -i usig.xml -s /home/creator/of/many/dictionaries => creates the stardict binaries from the xml input.
 
