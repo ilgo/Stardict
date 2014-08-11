@@ -12,6 +12,10 @@ A command line tool to transform xml files from and into stardict format.
   There are a few samples in test/resources to see how the xml file is tructured.
 
 
+###Dependencies
+The following libraries will be needed:
+* commons-cli.jar
+
 ###Build
 Build by running __ant__ in the root of the project.
 It will create an executable ./star.jar.
@@ -29,5 +33,6 @@ Export an existing Stardict with given name to xml. A valid stardict is a at lea
 If either the idx or dict files are zipped, they must be first unzipped.
 
 ```./star.jar -e yusig -s /home/data/dict```                       => creates yusig.xml in the current directory.
-```./star-jar -i usig.xml -s /home/creator/of/many/dictionaries``` => creates the stardict binaries from the xml input.
+
+```./star-jar -i yusig.xml -s /home/creator/of/many/dictionaries``` => creates the stardict binaries from the xml input.
 
