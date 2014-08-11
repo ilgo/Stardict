@@ -29,12 +29,12 @@ usage: star.jar
 ```
 
 ###Examples:
-Export an existing Stardict with given name to xml. A valid stardict is a at least a triple of files with the following file-expansions. _.ifo_, _.idx_, _dict_ and possibly a _syn_.
+* Export an existing Stardict with given name to xml. A valid stardict is a at least a triple of files with the following file-expansions. _.ifo_, _.idx_, _dict_ and possibly a _syn_.
 If either the idx or dict files are zipped, they must be first unzipped.
 
 ```./star.jar -e yusig -s /home/data/dict```                       => creates yusig.xml in the current directory.
 
-Import a dictionary from xml. The xml will be validated against ./resources/startdict.xsd.
+* Import a dictionary from xml. The xml will be validated against ./resources/startdict.xsd.
  
 ```./star-jar -i yusig.xml -s /home/creator/of/many/dictionaries``` => creates the stardict binaries from the xml input.
 
