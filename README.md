@@ -1,5 +1,4 @@
 #Stardict
-========
 
 A command line tool to transform xml files from and into stardict format. 
 
@@ -19,7 +18,7 @@ The following libraries will be needed:
 
 ###Build
 Build by running __ant__ in the root of the project.
-It will create an executable ./star.jar.
+It will create an executable ./star.jar, that accepts the following parameters.
 
 ```
 usage: star.jar
