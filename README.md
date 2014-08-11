@@ -34,5 +34,7 @@ If either the idx or dict files are zipped, they must be first unzipped.
 
 ```./star.jar -e yusig -s /home/data/dict```                       => creates yusig.xml in the current directory.
 
+Import a dictionary from xml. The xml will be validated against ./resources/startdict.xsd.
+ 
 ```./star-jar -i yusig.xml -s /home/creator/of/many/dictionaries``` => creates the stardict binaries from the xml input.
 
