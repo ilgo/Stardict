@@ -44,9 +44,14 @@ import zen.ilgo.star.xml.ObjectFactory;
  */
 public class StarFactory {
 
-    public static final String STAR_HOME = System.getProperty("user.home") + "/.stardict/dic";
+    public static String STAR_HOME = System.getProperty("user.home") + "/.stardict/dic";
     public static final File STAR_XSD = new File("resources/stardict.xsd");
     
+
+    public static void setStarHome(String starHome) {
+        STAR_HOME = starHome;
+    }
+
     /**
      * Loads a dictionary from default starHome;
      * 
@@ -133,7 +138,7 @@ public class StarFactory {
                 
                 IfoFile ifo = metaToIfo(dictionary.getMeta());
                 Map<String, List<String>> dataMap = entriesToDatamap(dictionary.getEntries());
-                
+
                 if (ifo != null && dataMap != null) {
                     star = new Stardict();
                     star.setIfo(ifo);
@@ -146,6 +151,8 @@ public class StarFactory {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (SAXException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return star;

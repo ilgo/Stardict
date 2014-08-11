@@ -28,12 +28,14 @@
     <target name='build'>
         <mkdir dir="${build.dir}"/>
         <javac srcdir="${src.dir}"
-                 destdir="${build.dir}"
-                 debug="on"
-                 source="1.5" />
+               destdir="${build.dir}"
+               classpath="/usr/share/java/commons-cli.jar"
+               debug="on"
+               source="1.5" />
     </target>
 
 	<target name="jar">
+        <delete file="star.jar"/>
 		<jar destfile="./star.jar" filesetmanifest="mergewithoutmain">
 			<manifest>
 				<attribute name="Built-By" value="${user.name}" />
@@ -41,11 +43,9 @@
 				<attribute name="Class-Path" value="." />
 			</manifest>
 			<fileset dir="./build" />
-			<zipfileset excludes="META-INF/*.SF" src="/usr/share/java/log4j-1.2.jar" />
-			<zipfileset excludes="META-INF/*.SF" src="/usr/share/java/commons-httpclient.jar" />
+			<zipfileset excludes="META-INF/*.SF" src="/usr/share/java/commons-cli.jar" />
 		</jar>
-    
-        <chmod file="star.jar" perm="ugo+x"/>
+        <chmod file="star.jar" perm="+x"/>
 	</target>
 
     <!--
