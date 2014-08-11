@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project name="StarDict" default="xjc" basedir=".">
+<project name="StarDict" default="all" basedir=".">
 
 	<property name="xjc.bin" value="/usr/bin/xjc" />
 	<property name="src.dir" value="./src"/>
+	<property name="build.dir" value="./build"/>
+	<property name="test.src.dir" value="./test"/>
+	<property name="test.build.dir" value="./test/build"/>
 	<property name="target.pkg" value="zen.ilgo.star.xml"/>
 	<property name="star.xsd" value="./resources/stardict.xsd" />
-	
+
+	<target name="all" depends="xjc, build, jar"/>
+
 	<!-- create the JAXB classes from the stardict.xsd
 	     target is src/zen/ilgo/star/xml
 	-->
@@ -19,5 +24,59 @@
 		    <arg value="${star.xsd}"/>
 		</exec>	
 	</target>
+
+    <target name='build'>
+        <mkdir dir="${build.dir}"/>
+        <javac srcdir="${src.dir}"
+                 destdir="${build.dir}"
+                 debug="on"
+                 source="1.5" />
+    </target>
+
+	<target name="jar">
+		<jar destfile="./star.jar" filesetmanifest="mergewithoutmain">
+			<manifest>
+				<attribute name="Built-By" value="${user.name}" />
+				<attribute name="Main-Class" value="zen.ilgo.star.CmdLine" />
+				<attribute name="Class-Path" value="." />
+			</manifest>
+			<fileset dir="./build" />
+			<zipfileset excludes="META-INF/*.SF" src="/usr/share/java/log4j-1.2.jar" />
+			<zipfileset excludes="META-INF/*.SF" src="/usr/share/java/commons-httpclient.jar" />
+		</jar>
+    
+        <chmod file="star.jar" perm="ugo+x"/>
+	</target>
+
+    <!--
+    <target name="test">
+        <mkdir dir="${test.build.dir}"/>
+        <javac srcdir="${test.src.dir}"
+                 destdir="${test.build.dir}"
+                 debug="on"
+                 source="1.5" />
+
+        <junit printsummary="yes" haltonfailure="yes">
+            <classpath>
+                <pathelement location="${test.build.dir}"/>
+                <pathelement path="${java.class.path}"/>
+            </classpath>
+          
+            <formatter type="plain"/>
+          
+            <test name="my.test.TestCase" haltonfailure="no" outfile="result">
+                <formatter type="xml"/>
+            </test>
+          
+            <batchtest fork="yes" todir="${reports.tests}">
+                <fileset dir="${src.tests}">
+                    <include name="**/*Test*.java"/>
+                    <exclude name="**/AllTests.java"/>
+                </fileset>
+            </batchtest>
+        </junit>
+
+    </target>
+    -->
 
 </project>
