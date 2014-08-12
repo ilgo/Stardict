@@ -6,6 +6,7 @@
 	<property name="build.dir" value="./build"/>
 	<property name="test.src.dir" value="./test"/>
 	<property name="test.build.dir" value="./test/build"/>
+	<property name="test.reports.dir" value="./test/reports"/>
 	<property name="target.pkg" value="zen.ilgo.star.xml"/>
 	<property name="star.xsd" value="./resources/stardict.xsd" />
 
@@ -48,13 +49,9 @@
         <chmod file="star.jar" perm="+x"/>
 	</target>
 
-    <!--
     <target name="test">
         <mkdir dir="${test.build.dir}"/>
-        <javac srcdir="${test.src.dir}"
-                 destdir="${test.build.dir}"
-                 debug="on"
-                 source="1.5" />
+        <mkdir dir="${test.reports.dir}"/>
 
         <junit printsummary="yes" haltonfailure="yes">
             <classpath>
@@ -64,19 +61,13 @@
           
             <formatter type="plain"/>
           
-            <test name="my.test.TestCase" haltonfailure="no" outfile="result">
-                <formatter type="xml"/>
-            </test>
-          
-            <batchtest fork="yes" todir="${reports.tests}">
-                <fileset dir="${src.tests}">
+            <batchtest fork="yes" todir="${test.reports.dir}">
+                <fileset dir="${test.src.dir}">
                     <include name="**/*Test*.java"/>
                     <exclude name="**/AllTests.java"/>
                 </fileset>
             </batchtest>
         </junit>
-
     </target>
-    -->
 
 </project>
