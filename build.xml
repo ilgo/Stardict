@@ -9,6 +9,7 @@
 	<property name="test.reports.dir" value="./test/reports"/>
 	<property name="target.pkg" value="zen.ilgo.star.xml"/>
 	<property name="star.xsd" value="./resources/stardict.xsd" />
+	<property name="junit.jar" value="/usr/share/java/junit4.jar"/>
 
 	<target name="all" depends="xjc, build, jar"/>
 
@@ -52,19 +53,36 @@
     <target name="test">
         <mkdir dir="${test.build.dir}"/>
         <mkdir dir="${test.reports.dir}"/>
+        <delete>
+            <fileset dir="${build.dir}"/>
+            <fileset dir="${test.build.dir}"/>
+            <fileset dir="${test.reports.dir}"/>
+        </delete>
+        <javac srcdir="${src.dir}"
+               destdir="${build.dir}"
+               classpath="/usr/share/java/commons-cli.jar"
+               debug="on"
+               source="1.6" />
+
+        <javac srcdir="${test.src.dir}"
+               destdir="${test.build.dir}"
+               debug="on"
+               classpath="${build.dir}:${junit.jar}"
+               source="1.6" />
 
         <junit printsummary="yes" haltonfailure="yes">
             <classpath>
                 <pathelement location="${test.build.dir}"/>
+                <pathelement location="${build.dir}"/>
                 <pathelement path="${java.class.path}"/>
+                <pathelement path="${junit.jar}"/>
             </classpath>
           
             <formatter type="plain"/>
           
             <batchtest fork="yes" todir="${test.reports.dir}">
                 <fileset dir="${test.src.dir}">
-                    <include name="**/*Test*.java"/>
-                    <exclude name="**/AllTests.java"/>
+                    <include name="**/StarDictTestSuite.java"/>
                 </fileset>
             </batchtest>
         </junit>
