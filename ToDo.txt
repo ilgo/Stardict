@@ -1,6 +1,6 @@
 1. Data in ifo and Meta transformation
 2. setting the default ns: to star: when writing to xml
 3. Existing dictionaries that do not use syn files. 
-4. Build a jar 
-5. Add commandline parameters to import/export quickly
+4. Build a jar  DONE:2014-08-12 
+5. Add commandline parameters to import/export quickly  DONE:2014-08-12 
 
