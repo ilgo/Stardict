@@ -1,6 +1,6 @@
 #Stardict
 
-A command line tool to transform xml files from and into stardict format. 
+A command line tool to transform xml files from and to stardict format. 
 
 * Originally the binary format was used by an application known as Stardict.
   These days many Opensource DictReader binaries are available that can read this format.
@@ -8,7 +8,7 @@ A command line tool to transform xml files from and into stardict format.
 
 * The xml format for the raw input is validated against resources/stardict.xsd. 
   This xml schema is not part of the original stardict format, and will support synonym files. 
-  There are a few samples in test/resources to see how the xml file is tructured.
+  There are a few samples in test/resources to see how the xml file is structured.
 
 
 ###Dependencies
