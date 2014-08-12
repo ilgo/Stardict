@@ -28,6 +28,11 @@ usage: star.jar
  -s,--starHome <arg>   directory where the stardicts are found
 ```
 
+###Tests
+The tests can be run by __ant__ __test__. 
+For the tests to pass the ~/.stardict/dic directory must exist.
+ 
+
 ###Examples:
 * Export an existing Stardict with given name to xml. A valid stardict is a at least a triple of files with the following file-expansions. _.ifo_, _.idx_, _dict_ and possibly a _syn_.
 If either the idx or dict files are zipped, they must be first unzipped.
