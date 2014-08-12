@@ -13,7 +13,8 @@ A command line tool to transform xml files from and to stardict format.
 
 ###Dependencies
 The following libraries will be needed:
-* commons-cli.jar
+* /usr/share/java/commons-cli.jar
+* /usr/share/java/junit4.jar
 
 
 ###Build
